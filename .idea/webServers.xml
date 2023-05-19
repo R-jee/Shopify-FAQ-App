@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="80d2f7d3-b50d-4f06-a423-3e075e54f8e0" name="fastfaq.console.autooutletllc.com" url="http://fastfaq.console.autooutletllc.com">
+        <fileTransfer rootFolder="/fastfaq.console.autooutletllc.com" accessType="FTPS" host="fastfaq.console.autooutletllc.com" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

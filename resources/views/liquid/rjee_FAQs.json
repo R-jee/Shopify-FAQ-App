@@ -1,0 +1,19 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+      }
+    },
+    "faq_rjee": {
+      "type": "rjee-faqs-section",
+      "settings": {
+
+      }
+    }
+  },
+  "order": [
+    "main",
+    "faq_rjee"
+  ]
+}

@@ -1,0 +1,702 @@
+{%- capture bg_image_class -%}
+  {%- for block in section.blocks -%}{%- case block.type -%}{%- when 'section_background' -%}{%- if block.settings.section_bg_image -%}bg-img lazyload{%- endif -%}{%- endcase -%}{%- endfor -%}
+{%- endcapture -%}
+
+{%- capture sections_bg_image -%}
+  {%- for block in section.blocks -%}{%- case block.type -%}{%- when 'section_background' -%}{%- if block.settings.section_bg_image -%}data-bgset="{%- render 'responsive-bg-image', image: block.settings.section_bg_image -%}"{%- endif -%}{%- endcase -%}{%- endfor -%}
+{%- endcapture -%}
+
+<div class="faq-page {{ bg_image_class }}" id="section-{{ section.id }}" {{ sections_bg_image }}>
+  {%- if section.settings.section_title != '' or section.settings.section_sub_title != '' -%}
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <!-- section title start -->
+          <div class="section-title text-center">
+            {%- if section.settings.section_title != '' -%}
+              <h2 class="title">{{ section.settings.section_title }}</h2>
+            {%- endif -%}
+            {%- if section.settings.section_sub_title != '' -%}
+              <p class="sub-title">{{ section.settings.section_sub_title }}</p>
+            {%- endif -%}
+          </div>
+          <!-- section title start -->
+        </div>
+      </div>
+    </div>
+  {%- endif -%}
+  <div class="container">
+    <div id="accordion">
+      {%- assign i = 1 -%}
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'faq' -%}
+            <div {{ block.shopify_attributes }} class="card">
+              <div class="card-header" id="heading-{{ i }}">
+                <h5 class="mb-0">
+                  <button class="btn btn-link {% unless forloop.first %}collapsed{% endunless %}" data-toggle="collapse" data-target="#collapse-{{ i }}" aria-expanded="true" aria-controls="collapse-{{ i }}">
+                    {{ block.settings.accordion_title }}
+                  </button>
+                </h5>
+              </div>
+              <div id="collapse-{{ i }}" class="collapse {% if forloop.first %}show{% endif %}" aria-labelledby="heading-{{ i }}" data-parent="#accordion">
+                <div class="card-body">
+                  {{ block.settings.accordion_content }}
+                </div>
+              </div>
+            </div>
+            {%- assign i = i | plus: 1 -%}
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+{%- render 'section-style' -%}
+{% schema %}
+{
+  "name": "FAQ's Question-Answers",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Heading"
+    },
+    {
+      "type": "checkbox",
+      "id": "rjee_faqs_section_show_hide",
+      "label": "Show FAQ Section",
+      "default": true,
+      "info": "Enable/Disable FAQs section."
+    },
+    {
+      "type": "text",
+      "id": "rjee_faqs_title",
+      "label": "Header Text",
+      "default": "FAQ > ORDER/PAYMENT/CANCELLATION",
+      "info": "Header text to display."
+    },
+    {
+      "type": "textarea",
+      "id": "rjee_faqs_sub_title",
+      "label": "Section Sub Title",
+      "default": "Section Sub Title Here"
+    }
+  ],
+  "blocks":[
+    {
+      "type":"rjee_faq",
+      "name": "Question-Answers",
+      "settings": [
+        {
+          "type": "text",
+          "id": "rjee_faqs_question_text",
+          "label": "Title",
+          "default": "FAQ Question Heading text to display."
+        },
+        {
+          "type": "richtext",
+          "id": "rjee_faqs_answer_text",
+          "label": "Content",
+          "default": "FAQ Answer text to display."
+        }
+      ]
+    },
+    {
+      "type": "rjee_section_margin",
+      "name": "FAQ's Section Margin",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Large/Desktop Device"
+        },
+        {
+          "type": "range",
+          "id": "rjee_faqs_section_margin_top",
+          "min": 0,
+          "max": 150,
+          "step": 5,
+          "label": "Margin Top",
+          "unit": "px",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "rjee_faqs_section_margin_bottom",
+          "min": 0,
+          "max": 150,
+          "step": 5,
+          "label": "Margin Bottom",
+          "unit": "px",
+          "default": 0
+        },
+        {
+          "type": "header",
+          "content": "Tablet Device"
+        },
+        {
+          "type": "range",
+          "id": "rjee_faqs_section_margin_top_md",
+          "min": 0,
+          "max": 150,
+          "step": 5,
+          "label": "Margin Top",
+          "unit": "px",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "rjee_faqs_section_margin_bottom_md",
+          "min": 0,
+          "max": 150,
+          "step": 5,
+          "label": "Margin Bottom",
+          "unit": "px",
+          "default": 0
+        },
+        {
+          "type": "header",
+          "content": "Mobile Device"
+        },
+        {
+          "type": "range",
+          "id": "rjee_faqs_section_margin_top_xs",
+          "min": 0,
+          "max": 150,
+          "step": 5,
+          "label": "Margin Top",
+          "unit": "px",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "rjee_faqs_section_margin_bottom_xs",
+          "min": 0,
+          "max": 150,
+          "step": 5,
+          "label": "Margin Bottom",
+          "unit": "px",
+          "default": 0
+        }
+      ]
+    },
+    {
+      "type": "rjee_section_padding",
+      "name": "Section Padding",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Large/Desktop Device"
+        },
+        {
+          "type": "range",
+          "id": "rjee_faqs_section_padding_top",
+          "min": 0,
+          "max": 150,
+          "step": 5,
+          "label": "Padding Top",
+          "unit": "px",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "rjee_faqs_section_padding_bottom",
+          "min": 0,
+          "max": 150,
+          "step": 5,
+          "label": "Padding Bottom",
+          "unit": "px",
+          "default": 100
+        },
+        {
+          "type": "header",
+          "content": "Tablet Device"
+        },
+        {
+          "type": "range",
+          "id": "rjee_faqs_section_padding_top_md",
+          "min": 0,
+          "max": 150,
+          "step": 5,
+          "label": "Padding Top",
+          "unit": "px",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "rjee_faqs_section_padding_bottom_md",
+          "min": 0,
+          "max": 150,
+          "step": 5,
+          "label": "Padding Bottom",
+          "unit": "px",
+          "default": 80
+        },
+        {
+          "type": "header",
+          "content": "Mobile Device"
+        },
+        {
+          "type": "range",
+          "id": "rjee_faqs_section_padding_top_xs",
+          "min": 0,
+          "max": 150,
+          "step": 5,
+          "label": "Padding Top",
+          "unit": "px",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "rjee_faqs_section_padding_bottom_xs",
+          "min": 0,
+          "max": 150,
+          "step": 5,
+          "label": "Padding Bottom",
+          "unit": "px",
+          "default": 60
+        }
+      ]
+    },
+    {
+      "type": "rjee_section_background",
+      "name": "Section Background",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "color",
+          "id": "rjee_faqs_background_color",
+          "label": "BG Color",
+          "default": "#ffffff"
+        }
+      ]
+    },
+    {
+      "type": "rjee_section_title_typography",
+      "name": "Section Title Typography",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "color",
+          "id": "rjee_faqs_header_text_color",
+          "label": "Header Text color",
+          "default": "#000000"
+        },
+        {
+          "type": "font_picker",
+          "id": "rjee_faqs_header_text_font",
+          "label": "Header Text font",
+          "default": "helvetica_n4"
+        },
+        {
+          "type": "range",
+          "id": "rjee_faqs_header_text_font_size",
+          "min": 12,
+          "max": 46,
+          "step": 1,
+          "unit": "px",
+          "label": "Font size",
+          "default": 24
+        },
+        {
+          "type": "select",
+          "id": "rjee_faqs_header_align_text",
+          "label": "Text alignment",
+          "default": "left",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Centered"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "rjee_section_sub_title_typography",
+      "name": "Section Sub-Title Typography",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "color",
+          "id": "rjee_faqs_header_sub_text_color",
+          "label": "Header Text color",
+          "default": "#000000"
+        },
+        {
+          "type": "font_picker",
+          "id": "rjee_faqs_header_sub_text_font",
+          "label": "Header Text font",
+          "default": "helvetica_n4"
+        },
+        {
+          "type": "range",
+          "id": "rjee_faqs_header_sub_text_font_size",
+          "min": 12,
+          "max": 46,
+          "step": 1,
+          "unit": "px",
+          "label": "Font size",
+          "default": 24
+        },
+        {
+          "type": "select",
+          "id": "rjee_faqs_header_align_sub_text",
+          "label": "Text alignment",
+          "default": "left",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Centered"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "rjee_section_tabs_typography",
+      "name": "FAQ TABS TYPOGRAPHY",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "color",
+          "id": "accordion_item_question_text_color",
+          "label": "Text color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "color",
+          "id": "accordion_item_question_text_active_color",
+          "label": "Active Text color",
+          "default": "#000000"
+        },
+        {
+          "type": "font_picker",
+          "id": "accordion_item_question_text_font",
+          "label": "Text font",
+          "default": "helvetica_n4"
+        },
+        {
+          "type": "range",
+          "id": "accordion_item_question_text_font_size",
+          "min": 12,
+          "max": 46,
+          "step": 1,
+          "unit": "px",
+          "label": "Font size",
+          "default": 14
+        }
+      ]
+    },
+    {
+      "type": "rjee_section_tabs_border",
+      "name": "FAQ TABS Border Style",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "color",
+          "id": "accordion_item_question_border_color",
+          "label": "Border color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "color",
+          "id": "accordion_item_question_border_active_color",
+          "label": "Active Border color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "accordion_item_question_focus_color",
+          "label": "Focus color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "range",
+          "id": "accordion_item_question_border_size",
+          "min": 0,
+          "max": 30,
+          "step": 1,
+          "unit": "px",
+          "label": "Border size",
+          "default": 1
+        },
+        {
+          "type": "paragraph",
+          "content": "Border Radius"
+        },
+        {
+          "type": "range",
+          "id": "accordion_item_question_border_radius_topleft",
+          "min": 0,
+          "max": 30,
+          "step": 1,
+          "unit": "px",
+          "label": "Top-left Radius",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "accordion_item_question_border_radius_topright",
+          "min": 0,
+          "max": 30,
+          "step": 1,
+          "unit": "px",
+          "label": "Top-right Radius",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "accordion_item_question_border_radius_bottomleft",
+          "min": 0,
+          "max": 30,
+          "step": 1,
+          "unit": "px",
+          "label": "Bottom-right Radius",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "accordion_item_question_border_radius_bottomright",
+          "min": 0,
+          "max": 30,
+          "step": 1,
+          "unit": "px",
+          "label": "Bottom-right Radius",
+          "default": 0
+        },
+        {
+          "type": "paragraph",
+          "content": "Border Radius After"
+        },
+        {
+          "type": "range",
+          "id": "accordion_item_question_border_radius_after_topleft",
+          "min": 0,
+          "max": 30,
+          "step": 1,
+          "unit": "px",
+          "label": "Top-left Radius",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "accordion_item_question_border_radius_after_topright",
+          "min": 0,
+          "max": 30,
+          "step": 1,
+          "unit": "px",
+          "label": "Top-right Radius",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "accordion_item_question_border_radius_after_bottomleft",
+          "min": 0,
+          "max": 30,
+          "step": 1,
+          "unit": "px",
+          "label": "Bottom-right Radius",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "accordion_item_question_border_radius_after_bottomright",
+          "min": 0,
+          "max": 30,
+          "step": 1,
+          "unit": "px",
+          "label": "Bottom-right Radius",
+          "default": 0
+        }
+      ]
+    },
+    {
+      "type": "rjee_section_accordion_icon",
+      "name": "FAQ Accordion signs",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "select",
+          "id": "accordion_item_question_collapse_icon_align",
+          "label": "Collapse Icons alignment",
+          "default": "right",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "accordion_item_question_collapse_icon",
+          "label": "Select Collapse Icons",
+          "options": [
+            {
+              "value": "f107",
+              "label": "angles-down"
+            },
+            {
+              "value": "2b",
+              "label": "Plus"
+            },
+            {
+              "value": "f00c",
+              "label": "Check"
+            },
+            {
+              "value": "f058",
+              "label": "Circle-check"
+            },
+            {
+              "value": "f14a",
+              "label": "Square-check"
+            },
+            {
+              "value": "f103",
+              "label": "angle-down"
+            }
+          ],
+          "default": "f107"
+        },
+        {
+          "type": "select",
+          "id": "accordion_item_question_non_collapse_icon",
+          "label": "Select Non-Collapse Icons",
+          "options": [
+            {
+              "value": "f106",
+              "label": "angle-up"
+            },
+            {
+              "value": "f068",
+              "label": "minus"
+            },
+            {
+              "value": "f00d",
+              "label": "x-mark"
+            },
+            {
+              "value": "f057",
+              "label": "x-mark-circle"
+            },
+            {
+              "value": "f2d3",
+              "label": "x-mark-square"
+            },
+            {
+              "value": "f102",
+              "label": "angles-up"
+            }
+          ],
+          "default": "f106"
+        },
+        {
+          "type": "range",
+          "id": "accordion_item_question_collapse_icon_font_size",
+          "min": 0,
+          "max": 30,
+          "step": 1,
+          "unit": "px",
+          "label": "Collapse Icon Font-Size",
+          "default": 24
+        },
+        {
+          "type": "range",
+          "id": "accordion_item_question_collapse_icon_line_height",
+          "min": 0,
+          "max": 30,
+          "step": 1,
+          "unit": "px",
+          "label": "Collapse Icon Line-height",
+          "default": 9
+        },
+        {
+          "type": "range",
+          "id": "accordion_item_question_collapse_icon_padding_left",
+          "min": 0,
+          "max": 30,
+          "step": 1,
+          "unit": "px",
+          "label": "Collapse Icon Padding-left",
+          "default": 2
+        },
+        {
+          "type": "range",
+          "id": "accordion_item_question_collapse_icon_padding_right",
+          "min": 0,
+          "max": 30,
+          "step": 1,
+          "unit": "px",
+          "label": "Collapse Icon Padding-right",
+          "default": 5
+        },
+        {
+          "type": "range",
+          "id": "accordion_item_question_collapse_icon_padding_top",
+          "min": 0,
+          "max": 30,
+          "step": 1,
+          "unit": "px",
+          "label": "Collapse Icon Padding-top",
+          "default": 2
+        },
+        {
+          "type": "range",
+          "id": "accordion_item_question_collapse_icon_padding_bottom",
+          "min": 0,
+          "max": 30,
+          "step": 1,
+          "unit": "px",
+          "label": "Collapse Icon Padding-bottom",
+          "default": 2
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ's",
+      "category": "others",
+      "blocks":[
+        {
+          "type": "rjee_faq"
+        },
+        {
+          "type": "rjee_faq"
+        },
+        {
+          "type": "rjee_faq"
+        },
+        {
+          "type": "rjee_faq"
+        },
+        {
+          "type": "rjee_faq"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,161 @@
+{
+  "type": "rjee_faqs_section",
+  "blocks": {
+    "template--19049524724023__dbe0f03f-d665-4621-9810-87fb9833668c-1683792252fb1eac5d-0": {
+      "type": "rjee_section_background",
+      "settings": {
+        "rjee_faqs_background_color": "{{ shop.brand.colors.secondary[0].background }}"
+      }
+    },
+    "template--19049524724023__dbe0f03f-d665-4621-9810-87fb9833668c-1683792252fb1eac5d-1": {
+      "type": "rjee_section_margin",
+      "settings": {
+        "rjee_faqs_section_margin_top": 0,
+        "rjee_faqs_section_margin_bottom": 0,
+        "rjee_faqs_section_margin_top_md": 0,
+        "rjee_faqs_section_margin_bottom_md": 0,
+        "rjee_faqs_section_margin_top_xs": 0,
+        "rjee_faqs_section_margin_bottom_xs": 0
+      }
+    },
+    "template--19049524724023__dbe0f03f-d665-4621-9810-87fb9833668c-1683792252fb1eac5d-2": {
+      "type": "rjee_section_padding",
+      "settings": {
+        "rjee_faqs_section_padding_top": 40,
+        "rjee_faqs_section_padding_bottom": 100,
+        "rjee_faqs_section_padding_top_md": 30,
+        "rjee_faqs_section_padding_bottom_md": 60,
+        "rjee_faqs_section_padding_top_xs": 0,
+        "rjee_faqs_section_padding_bottom_xs": 60
+      }
+    },
+    "template--19049524724023__dbe0f03f-d665-4621-9810-87fb9833668c-1683792252fb1eac5d-3": {
+      "type": "title_typography",
+      "settings": {
+        "rjee_faqs_header_text_color": "#000000",
+        "rjee_faqs_header_text_font": "helvetica_n4",
+        "rjee_faqs_header_text_font_size": 24,
+        "rjee_faqs_header_align_text": "center"
+      }
+    },
+    "template--19049524724023__dbe0f03f-d665-4621-9810-87fb9833668c-1683792252fb1eac5d-4": {
+      "type": "sub_title_typography",
+      "settings": {
+        "rjee_faqs_header_sub_text_color": "#000000",
+        "rjee_faqs_header_sub_text_font": "helvetica_n4",
+        "rjee_faqs_header_sub_text_font_size": 12,
+        "rjee_faqs_header_align_sub_text": "center"
+      }
+    },
+    "template--19049524724023__dbe0f03f-d665-4621-9810-87fb9833668c-1683792252fb1eac5d-5": {
+      "type": "rjee_tabs_typography",
+      "settings": {
+        "accordion_item_question_bg": "#ffffff",
+        "accordion_item_question_active_bg": "#000000",
+        "accordion_item_question_text_color": "#000000",
+        "accordion_item_question_text_active_color": "#ffffff",
+        "accordion_item_question_text_font": "helvetica_n4",
+        "accordion_item_question_text_font_size": 14
+      }
+    },
+    "template--19049524724023__dbe0f03f-d665-4621-9810-87fb9833668c-1683792252fb1eac5d-6": {
+      "type": "rjee_content_typography",
+      "settings": {
+        "accordion_item_answer_bg": "#f1f1f1",
+        "accordion_item_answer_text_color": "#000000",
+        "accordion_item_answer_text_font": "helvetica_n4",
+        "accordion_item_answer_text_font_size": 14
+      }
+    },
+    "template--19049524724023__dbe0f03f-d665-4621-9810-87fb9833668c-1683792252fb1eac5d-7": {
+      "type": "rjee_section_tabs_border",
+      "settings": {
+        "accordion_item_question_border_color": "#ffffff",
+        "accordion_item_question_border_active_color": "#000000",
+        "accordion_item_question_focus_color": "#ffffff",
+        "accordion_item_question_border_top": 1,
+        "accordion_item_question_border_bottom": 1,
+        "accordion_item_question_border_left": 1,
+        "accordion_item_question_border_right": 1,
+        "accordion_item_question_border_radius_topleft": 0,
+        "accordion_item_question_border_radius_topright": 0,
+        "accordion_item_question_border_radius_bottomleft": 0,
+        "accordion_item_question_border_radius_bottomright": 0,
+        "accordion_item_question_border_radius_after_topleft": 0,
+        "accordion_item_question_border_radius_after_topright": 0,
+        "accordion_item_question_border_radius_after_bottomleft": 0,
+        "accordion_item_question_border_radius_after_bottomright": 0
+      }
+    },
+    "template--19049524724023__dbe0f03f-d665-4621-9810-87fb9833668c-1683792252fb1eac5d-8": {
+      "type": "rjee_accordion_icon",
+      "settings": {
+        "accordion_item_question_collapse_icon_align": "right",
+        "accordion_item_question_collapse_icon": "f107",
+        "accordion_item_question_non_collapse_icon": "f106",
+        "accordion_item_question_collapse_icon_font_size": 24,
+        "accordion_item_question_collapse_icon_line_height": 9,
+        "accordion_item_question_collapse_icon_padding_left": 2,
+        "accordion_item_question_collapse_icon_padding_right": 5,
+        "accordion_item_question_collapse_icon_padding_top": 2,
+        "accordion_item_question_collapse_icon_padding_bottom": 2
+      }
+    },
+    "template--19049524724023__dbe0f03f-d665-4621-9810-87fb9833668c-1683792252fb1eac5d-9": {
+      "type": "rjee_faq",
+      "settings": {
+        "rjee_faqs_question_text": "FAQ Question Heading text to display.",
+        "rjee_faqs_answer_text": "<p>FAQ Answer text to display<\/p>"
+      }
+    },
+    "template--19049524724023__dbe0f03f-d665-4621-9810-87fb9833668c-1683792252fb1eac5d-10": {
+      "type": "rjee_faq",
+      "settings": {
+        "rjee_faqs_question_text": "FAQ Question Heading text to display.",
+        "rjee_faqs_answer_text": "<p>FAQ Answer text to display<\/p>"
+      }
+    },
+    "template--19049524724023__dbe0f03f-d665-4621-9810-87fb9833668c-1683792252fb1eac5d-11": {
+      "type": "rjee_faq",
+      "settings": {
+        "rjee_faqs_question_text": "FAQ Question Heading text to display.",
+        "rjee_faqs_answer_text": "<p>FAQ Answer text to display<\/p>"
+      }
+    },
+    "template--19049524724023__dbe0f03f-d665-4621-9810-87fb9833668c-1683792252fb1eac5d-12": {
+      "type": "rjee_faq",
+      "settings": {
+        "rjee_faqs_question_text": "FAQ Question Heading text to display.",
+        "rjee_faqs_answer_text": "<p>FAQ Answer text to display<\/p>"
+      }
+    },
+    "template--19049524724023__dbe0f03f-d665-4621-9810-87fb9833668c-1683792252fb1eac5d-13": {
+      "type": "rjee_faq",
+      "settings": {
+        "rjee_faqs_question_text": "FAQ Question Heading text to display.",
+        "rjee_faqs_answer_text": "<p>FAQ Answer text to display<\/p>"
+      }
+    }
+  },
+  "block_order": [
+    "template--19049524724023__dbe0f03f-d665-4621-9810-87fb9833668c-1683792252fb1eac5d-0",
+    "template--19049524724023__dbe0f03f-d665-4621-9810-87fb9833668c-1683792252fb1eac5d-1",
+    "template--19049524724023__dbe0f03f-d665-4621-9810-87fb9833668c-1683792252fb1eac5d-2",
+    "template--19049524724023__dbe0f03f-d665-4621-9810-87fb9833668c-1683792252fb1eac5d-3",
+    "template--19049524724023__dbe0f03f-d665-4621-9810-87fb9833668c-1683792252fb1eac5d-4",
+    "template--19049524724023__dbe0f03f-d665-4621-9810-87fb9833668c-1683792252fb1eac5d-5",
+    "template--19049524724023__dbe0f03f-d665-4621-9810-87fb9833668c-1683792252fb1eac5d-6",
+    "template--19049524724023__dbe0f03f-d665-4621-9810-87fb9833668c-1683792252fb1eac5d-7",
+    "template--19049524724023__dbe0f03f-d665-4621-9810-87fb9833668c-1683792252fb1eac5d-8",
+    "template--19049524724023__dbe0f03f-d665-4621-9810-87fb9833668c-1683792252fb1eac5d-9",
+    "template--19049524724023__dbe0f03f-d665-4621-9810-87fb9833668c-1683792252fb1eac5d-10",
+    "template--19049524724023__dbe0f03f-d665-4621-9810-87fb9833668c-1683792252fb1eac5d-11",
+    "template--19049524724023__dbe0f03f-d665-4621-9810-87fb9833668c-1683792252fb1eac5d-12",
+    "template--19049524724023__dbe0f03f-d665-4621-9810-87fb9833668c-1683792252fb1eac5d-13"
+  ],
+  "settings": {
+    "rjee_faqs_section_show_hide": true,
+    "rjee_faqs_title": "FAQ > ORDER\/PAYMENT\/CANCELLATION",
+    "rjee_faqs_sub_title": "Section Sub Title Here"
+  }
+}

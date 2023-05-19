@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig authType="PASSWORD" host="fastfaq.console.autooutletllc.com" id="47ecf5c2-9f7c-4580-83e1-d4afb521facc" port="22" nameFormat="DESCRIPTIVE" username="consoleautooutle" useOpenSSHConfig="true" />
+    </configs>
+  </component>
+</project>
